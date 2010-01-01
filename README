@@ -13,7 +13,7 @@ script/plugin install git://github.com/thorncp/improved-includes.git
 Examples
 ========
 
-# Two new methods are made available to all views in the applications: 
+# Two new methods are made available to all views in the application: 
 # - javascript_includes(*sources)
 # - stylesheet_links(*sources)
 
@@ -22,8 +22,8 @@ Examples
 
 # All of the options available to javascript_include_tag and stylesheet_link_tag
 # are still available
-<%= stylesheet_links 'themes/', :cache => 'themes' %>
-<%= javascript_includes :all, :recursive => true %>
+<%= stylesheet_links 'themes/', :recursive => true, :cache => 'themes' %>
+<%= javascript_includes :all, :recursive => true, :cache => 'everything' %>
 
 # Mix and match files and directories
 <%= stylesheet_links 'application', 'themes/'
