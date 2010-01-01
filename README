@@ -8,7 +8,7 @@ subdirectories.
 Installation
 ============
 
-script/install git://github.com/thorncp/improved-includes.git
+script/plugin install git://github.com/thorncp/improved-includes.git
 
 Examples
 ========
