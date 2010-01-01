@@ -1,13 +1,32 @@
 ImprovedIncludes
 ================
 
-Introduction goes here.
+Improved Includes expands upon the functionality of the javascript_include_tag 
+and stylesheet_link_tag methods, adding functionality to recursively include
+subdirectories.
 
+Installation
+============
 
-Example
-=======
+script/install git://github.com/thorncp/improved-includes.git
 
-Example goes here.
+Examples
+========
 
+# Two new methods are made available to all views in the applications: 
+# - javascript_includes(*sources)
+# - stylesheet_links(*sources)
 
-Copyright (c) 2009 [name of plugin creator], released under the MIT license
+# To include everything in a directory, just pass the name ending with a '/'.
+<%= stylesheet_links 'themes/' %>
+
+# All of the options available to javascript_include_tag and stylesheet_link_tag
+# are still available
+<%= stylesheet_links 'themes/', :cache => 'themes' %>
+<%= javascript_includes :all, :recursive => true %>
+
+# Mix and match files and directories
+<%= stylesheet_links 'application', 'themes/'
+<%= javascript_includes 'jquery', 'application', 'utilities/validations/'
+
+Copyright (c) 2009 Chris Thorn, released under the MIT license
