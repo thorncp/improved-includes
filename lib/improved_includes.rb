@@ -25,7 +25,7 @@ module ApplicationHelper
     sources.each do |source|
       if source =~ /\/$/
         tmp = recursive ? "**/" : ""
-        Dir.glob("#{root}/#{source}#{tmp}*.#{filetype}").collect do |path|
+        Dir.glob("#{root}/#{source}#{tmp}*.#{filetype}").each do |path|
           paths << "#{path}".sub("#{root}/", '')
         end
       else
