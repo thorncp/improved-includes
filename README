@@ -32,4 +32,4 @@ Examples
 <%= stylesheet_links 'application', 'themes/' %>
 <%= javascript_includes 'jquery', 'application', 'utilities/validations/' %>
 
-Copyright (c) 2009 Chris Thorn, released under the MIT license
+Copyright (c) 2010 Chris Thorn, released under the MIT license
