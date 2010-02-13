@@ -1,15 +1,16 @@
 # ImprovedIncludes
-module ApplicationHelper  
-  include ActionView::Helpers::AssetTagHelper
+module ApplicationHelper
+  
+  @asset_dir = "public"
   
   def stylesheet_links(*sources)
-    links, options = expand_sources_and_options(STYLESHEETS_DIR, "css", sources)
-    stylesheet_link_tag links, options
+    links, options = expand_sources_and_options("#{@asset_dir}/stylesheets", "css", sources)
+    stylesheet_link_tag *links, options
   end
   
   def javascript_includes(*sources)
-    links, options = expand_sources_and_options(JAVASCRIPTS_DIR, "js", sources)
-    javascript_include_tag links, options
+    links, options = expand_sources_and_options("#{@asset_dir}/javascripts", "js", sources)
+    javascript_include_tag *links, options
   end
   
   private
@@ -23,7 +24,12 @@ module ApplicationHelper
     
     paths = []
     sources.each do |source|
-      if source =~ /\/$/
+      if source.is_a? Symbol
+        paths << source
+        next
+      end
+      
+      if source.end_with? "/"
         tmp = recursive ? "**/" : ""
         Dir.glob("#{root}/#{source}#{tmp}*.#{filetype}").each do |path|
           paths << "#{path}".sub("#{root}/", '')
@@ -35,3 +41,4 @@ module ApplicationHelper
     return paths, options
   end
 end
+˝
