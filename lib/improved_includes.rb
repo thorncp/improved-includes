@@ -41,4 +41,3 @@ module ApplicationHelper
     return paths, options
   end
 end
-˝
